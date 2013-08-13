@@ -1,0 +1,14 @@
+{% block userbar %}
+  <nav class="webmaker-nav-container fr">
+    <a id="logo" href="https://webmaker.org"><img src="{{ login }}/img/webmaker-logo.png" alt="Mozilla Webmaker" /></a>
+    <ul class="webmaker-nav user-info">
+      <li class="user">
+        Hi <span id="identity" class="user-name-container"></span>
+      </li>
+      <li class="makes"><a href="{{ audience }}/me?app={{ appname }}" target="_blank">My makes</a></li>
+      <li>
+        <iframe src="{{ audience }}/sso/include.html" class="include-frame"></iframe>
+      </li>
+    </ul>
+  </nav>
+{% endblock %}
