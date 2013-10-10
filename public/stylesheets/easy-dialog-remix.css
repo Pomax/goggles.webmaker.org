@@ -154,7 +154,9 @@ span.sample {
     float: none;
     clear: both;
     width: 100%;
+	height: auto !important;
     margin-left: 0;
+	padding: 2em 0;
   }
   
 }

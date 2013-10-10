@@ -413,3 +413,13 @@ div.webxray-toolbar-button-glyph-tiny {
   background-color: yellow;
   color: black;
 }
+
+@media screen and (max-width: 800px) {
+	.webxray-dialog-middle {
+		top: 0% !important;
+		height: 100% !important;
+	}
+	div.webxray-dialog-inner {
+		width: 100% !important;
+	}
+}
