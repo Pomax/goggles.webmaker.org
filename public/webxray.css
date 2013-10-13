@@ -447,5 +447,8 @@ div.webxray-toolbar-button-glyph-tiny {
 @media screen and (max-height: 400px) {
 	div.webxray-toolbar-button-glyph {
 	  display: none;
-	}	
+	}
+	div.webxray-toolbar-button {
+		height: 10px;
+	}		
 }
