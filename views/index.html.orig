@@ -1,0 +1,415 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="{{ localeInfo.lang }}" dir="{{ localeInfo.direction }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="persona-email" content="{{ email }}">
+    <meta name="X-CSRF-Token" content="{{ csrf }}">
+	<meta name="viewport" content="width=device-width">      
+    <title>{{ gettext("X-Ray Goggles") }}</title>
+    <link rel="stylesheet" href="/resources/font-awesome/css/font-awesome.css">
+    <link href="//www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ login }}/css/nav.css" />
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    {% include "googleanalytics.html" %}
+  </head>
+  <body>
+
+    <div class="webmaker-outer-wrapper">
+      {% block header %}
+      <header id="webmaker-nav">
+        <nav class="webmaker-nav-container">
+          <div class="user-nav-container">
+            <a id="logo" href="{{ audience }}/{{localeInfo.lang}}/"><img src="/img/logo.png" alt="{{ gettext("Mozilla Webmaker") }}"></a>
+            <ul class="webmaker-nav user-info">
+              <li class="lang-picker">
+                <select id="lang-picker">
+                {% for language in listDropdownLang %}
+                  <option {% if languageNameFor(localeInfo.lang) == languageNameFor(language) %} selected="selected" {% endif %} value="{{language}}">{{ languageNameFor(language) }}</option>
+                {% endfor %}
+                </select>
+              </li>
+              <li class="user">
+                {{ gettext("Hi") }} <span id="identity" class="user-name-container"></span>
+              </li>
+              <li class="makes"><a href="{{ audience }}/{{localeInfo.lang}}/me?app={{ appname }}">{{ gettext("My makes") }}</a></li>
+              <li>
+                <iframe src="{{audience}}/{{localeInfo.lang}}/sso/include.html" class="include-frame"></iframe>
+              </li>
+            </ul>
+            <ul class="nav-list">
+              <li>
+                <a {% if page == 'index' %}class="on"{% endif %} id="nav-index" href="/{{localeInfo.lang}}">{{ gettext("Make") }}</a>
+                <div class="makenav-hover">
+                  <a href="{{ audience }}/{{localeInfo.lang}}/starter-makes" class="makenav-hover-item">
+                    <img src="/img/icon-make-template.png" alt="{{ gettext("From starter make") }}" />
+                    <span>{{ gettext("From starter make") }}</span>
+                  </a>
+                  <a href="https://goggles.webmaker.org/{{localeInfo.lang}}" class="makenav-hover-item">
+                    <img src="/img/icon-make-xray.png" alt="{{ gettext("X-Ray Goggles") }}" />
+                    <span>{{ gettext("X-Ray Goggles") }}</span>
+                  </a>
+                  <a href="https://popcorn.webmaker.org/{{localeInfo.lang}}/editor/" class="makenav-hover-item">
+                    <img src="/img/icon-make-popcorn.png" alt="{{ gettext("Popcorn Maker") }}" />
+                    <span>{{ gettext("Popcorn Maker") }}</span>
+                  </a>
+                  <a href="https://thimble.webmaker.org/{{localeInfo.lang}}" class="makenav-hover-item">
+                    <img src="/img/icon-make-thimble.png" alt="{{ gettext("Thimble") }}" />
+                    <span>{{ gettext("Thimble") }}</span>
+                  </a>
+                  <div class="help">
+                    <i class="icon-info-sign"></i><span>{{ gettext("Not sure what to make?") }}
+                    <a href="{{ audience }}/{{localeInfo.lang}}/tools">{{ gettext("Let us help.") }}</a></span>
+                  </div>
+                </div>
+              </li>
+              <li><a {% if page == 'teach' %}class="on"{% endif %} id="nav-teach" href="{{ audience }}/{{localeInfo.lang}}/teach">
+                {{ gettext("Teach") }}</a></li>
+              <li><a {% if page == 'events' %}class="on"{% endif %} id="nav-events" href="{{ audience }}/{{localeInfo.lang}}/events">
+                {{ gettext("Events")}}</a></li>
+              <li><a class="search-trigger{% if page == 'search' %} on{% endif %}" id="nav-search" href="{{ audience }}/{{localeInfo.lang}}/search">
+                <span class="icon-search"></span></a></li>
+            </ul>
+          </div>
+          <a href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
+        </nav>
+      </header>
+      {% endblock %}
+    </div>
+
+    <div class="ui-wrapper ui-body-nobg">
+      <div class="banner">
+        <div class="header">
+          <div>
+            <img class="logo" src="img/goggles.png" alt="X-Ray Goggles Logo">
+          </div>
+          <div>
+            <h1>{{ gettext("X-Ray Goggles") }}</h1>
+            <h2>{{ gettext("Remix and share web pages instantly") }}</h2>
+          </div>
+        </div>
+        <div class="bookmarklet"><a href="" id="bookmarklet-link" class="ui-btn"><span>{{ gettext("Activate X-Ray Goggles") }}</span></a></div>
+      </div>
+      <div class="ui-bg-column">
+        <div class="ui-row">
+          <div class="g-4">
+            <h1>{{ gettext("See how Goggles work by swapping an image") }}</h1>
+            <ol>
+              <li>
+                <p>{{ gettext("Copy this image URL") }}<br>
+                <input type="text" autofocus value="{{ host }}/img/goggles-remixed.png"></p>
+                <p>{{ gettext("The URL you just copied links to a new image!") }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("activate the X-Ray Goggles by") }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("With X-Ray Goggles now activated") }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("Find the current X-Ray Goggles image") }}</p>
+                <p><img class="example" src="img/goggles.png" alt="X-Ray Goggles Logo"></p>
+                <p>{{ gettext("Then click on the highlighted image") }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("Replace the image location") | safe }}</p>
+                <p><strong>{{ gettext("Here's how:") }}</strong> {{ gettext("See where it says") | safe }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("Great! You've successfully swapped images") }}</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="g-4">
+            <h1>{{ gettext("Share your remix") }}</h1>
+            <p>{{ gettext("When you're ready to share your remixed page") | safe }}</p>
+
+            <h1>{{ gettext("Help") }}</h1>
+            <p>{{ gettext("If you need help") | safe }}</p>
+
+            <h1>{{ gettext("Remix any webpage!") }}</h1>
+            <p>{{ gettext("You can take X-Ray Goggles with you anywhere on the web:") }}</p>
+            <ol id="install">
+              <li>
+                <p>{{ gettext("Make sure your web browser's bookmarks bar is enabled.") }} </p>
+                <p class="screenshot step1" data-step="1"><img src="img/instructions/firefox1.png"></p>
+              </li>
+              <li>
+                <p>{{ gettext("Drag the yellow button into your bookmarks") | safe }}</p>
+                <p class="screenshot step2" data-step="2"><img src="img/instructions/firefox2.png"></p>
+              </li>
+              <li>
+                <p>{{ gettext("Now visit any website on the internet") }}</p>
+              </li>
+            </ol>
+            <ol id="install-mobile" style="display: none;">
+                <li>
+                	<p>{{ gettext("Press and hold the activate x-ray goggles button.") }}</p>
+					<p class="screenshot step1" data-step="1"><img src="img/instructions/mobile/firefox1.png"></p>
+                </li>
+                <li>
+                	<p>{{ gettext("Copy & Bookmark the link") }}</p>
+					<p class="screenshot step2" data-step="2"><img src="img/instructions/mobile/firefox2.png"></p>                
+                </li>
+                <li>
+                	<p>{{ gettext("Paste the link and run it") }}</p>
+					<p class="screenshot step3" data-step="3"><img src="img/instructions/mobile/firefox3.png"></p>                    
+                </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div id="try-goggles">
+
+    </div>
+    <script id="require-js" src="/bower/requirejs/require.js"
+      data-main="{% block require_main %}/js/main.js{% endblock %}">
+    </script>
+    <script src="jquery.min.js"></script>
+    <script src="src/get-bookmarklet-url.js"></script>
+    <script src="{{ audience }}/sso/include.js"></script>
+    <script src="{{ login }}/js/sso-ux.js"></script>
+    <script src="https://www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
+    <script>(function() {
+      "use strict";
+      $(window).ready(function() {
+
+        $("#bookmarklet-link").attr("href", Webxray.getBookmarkletURL("{{hostname}}", "{{localeInfo.lang}}"));
+        $("#bookmarklet-url").val(Webxray.getBookmarkletURL());
+
+        // browser-specific screenshots
+        // http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
+        var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+            // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+        var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+        var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+            // At least Safari 3+: "[object HTMLElementConstructor]"
+        var isChrome = !!window.chrome && !isOpera;              // Chrome 1+
+        var isIE = /*@cc_on!@*/false || document.documentMode;   // At least IE6
+        var browser = "firefox";
+
+        if (isChrome) {
+          browser = "chrome";
+        } else if (isSafari) {
+          browser="safari";
+        }
+
+        $('#install .screenshot.step1 img').attr('src', 'img/instructions/' + browser + '1.png');
+        $('#install .screenshot.step2 img').attr('src', 'img/instructions/' + browser + '2.png');
+        $('.screenshot').fadeIn();
+		
+		/* sourced */
+		if( /webOS|iPhone|iPad|iPod|Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			$("#install").hide();
+			$("#install-mobile").show();
+		}
+      });
+
+    }());</script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="{{ localeInfo.lang }}" dir="{{ localeInfo.direction }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="persona-email" content="{{ email }}">
+    <meta name="X-CSRF-Token" content="{{ csrf }}">
+    <title>{{ gettext("X-Ray Goggles") }}</title>
+    <link rel="stylesheet" href="/resources/font-awesome/css/font-awesome.css">
+    <link href="//www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ login }}/css/nav.css" />
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    {% include "googleanalytics.html" %}
+  </head>
+  <body>
+
+    <div class="webmaker-outer-wrapper">
+      {% block header %}
+      <header id="webmaker-nav">
+        <nav class="webmaker-nav-container">
+          <div class="user-nav-container">
+            <a id="logo" href="{{ audience }}/{{localeInfo.lang}}/"><img src="/img/logo.png" alt="{{ gettext("Mozilla Webmaker") }}"></a>
+            <ul class="webmaker-nav user-info">
+              <li class="lang-picker">
+                <select id="lang-picker" data-supported="{{supportedLanguages}}">
+                {% for language in listDropdownLang %}
+                  <option {% if languageNameFor(localeInfo.lang) == languageNameFor(language) %} selected="selected" {% endif %} value="{{language}}">{{ languageNameFor(language) }}</option>
+                {% endfor %}
+                </select>
+              </li>
+              <li class="user">
+                {{ gettext("Hi") }} <span id="identity" class="user-name-container"></span>
+              </li>
+              <li class="makes"><a href="{{ audience }}/{{localeInfo.lang}}/me?app={{ appname }}">{{ gettext("My makes") }}</a></li>
+              <li>
+                <iframe src="{{audience}}/{{localeInfo.lang}}/sso/include.html" class="include-frame"></iframe>
+              </li>
+            </ul>
+            <ul class="nav-list">
+              <li>
+                <a {% if page == 'index' %}class="on"{% endif %} id="nav-index" href="/{{localeInfo.lang}}">{{ gettext("Make") }}</a>
+                <div class="makenav-hover">
+                  <a href="{{ audience }}/{{localeInfo.lang}}/starter-makes" class="makenav-hover-item">
+                    <img src="/img/icon-make-template.png" alt="{{ gettext("From starter make") }}" />
+                    <span>{{ gettext("From starter make") }}</span>
+                  </a>
+                  <a href="https://goggles.webmaker.org/{{localeInfo.lang}}" class="makenav-hover-item">
+                    <img src="/img/icon-make-xray.png" alt="{{ gettext("X-Ray Goggles") }}" />
+                    <span>{{ gettext("X-Ray Goggles") }}</span>
+                  </a>
+                  <a href="https://popcorn.webmaker.org/{{localeInfo.lang}}/editor/" class="makenav-hover-item">
+                    <img src="/img/icon-make-popcorn.png" alt="{{ gettext("Popcorn Maker") }}" />
+                    <span>{{ gettext("Popcorn Maker") }}</span>
+                  </a>
+                  <a href="https://thimble.webmaker.org/{{localeInfo.lang}}" class="makenav-hover-item">
+                    <img src="/img/icon-make-thimble.png" alt="{{ gettext("Thimble") }}" />
+                    <span>{{ gettext("Thimble") }}</span>
+                  </a>
+                  <div class="help">
+                    <i class="icon-info-sign"></i><span>{{ gettext("Not sure what to make?") }}
+                    <a href="{{ audience }}/{{localeInfo.lang}}/tools">{{ gettext("Let us help.") }}</a></span>
+                  </div>
+                </div>
+              </li>
+              <li><a {% if page == 'teach' %}class="on"{% endif %} id="nav-teach" href="{{ audience }}/{{localeInfo.lang}}/teach">
+                {{ gettext("Teach") }}</a></li>
+              <li><a {% if page == 'events' %}class="on"{% endif %} id="nav-events" href="{{ audience }}/{{localeInfo.lang}}/events">
+                {{ gettext("Events")}}</a></li>
+              <li><a class="search-trigger{% if page == 'search' %} on{% endif %}" id="nav-search" href="{{ audience }}/{{localeInfo.lang}}/search">
+                <span class="icon-search"></span></a></li>
+            </ul>
+          </div>
+          <a href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
+        </nav>
+      </header>
+      {% endblock %}
+    </div>
+
+    <div class="ui-wrapper ui-body-nobg">
+      <div class="banner">
+        <div class="header">
+          <div>
+            <img class="logo" src="img/goggles.png" alt="X-Ray Goggles Logo">
+          </div>
+          <div>
+            <h1>{{ gettext("X-Ray Goggles") }}</h1>
+            <h2>{{ gettext("Remix and share web pages instantly") }}</h2>
+          </div>
+        </div>
+        <div class="bookmarklet"><a href="" id="bookmarklet-link" class="ui-btn"><span>{{ gettext("Activate X-Ray Goggles") }}</span></a></div>
+      </div>
+      <div class="ui-bg-column">
+        <div class="ui-row">
+          <div class="g-4">
+            <h1>{{ gettext("See how Goggles work by swapping a image") }}</h1>
+            <ol>
+              <li>
+                <p>{{ gettext("Copy this image URL") }}<br>
+                <input type="text" autofocus value="{{ host }}/img/goggles-remixed.png"></p>
+                <p>{{ gettext("The URL you just copied links to a new image!") }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("activate the X-Ray Goggles by") }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("With X-Ray Goggles now activated") }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("Find the current X-Ray Goggles image") }}</p>
+                <p><img class="example" src="img/goggles.png" alt="X-Ray Goggles Logo"></p>
+                <p>{{ gettext("Then click on the highlighted image") }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("Replace the image location") | safe }}</p>
+                <p><strong>{{ gettext("Here's how:") }}</strong> {{ gettext("See where it says") | safe }}</p>
+              </li>
+              <li>
+                <p>{{ gettext("Great! You've successfully swapped images") }}</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="g-4">
+            <h1>{{ gettext("Share your remix") }}</h1>
+            <p>{{ gettext("When you're ready to share your remixed page") | safe }}</p>
+
+            <h1>{{ gettext("Help") }}</h1>
+            <p>{{ gettext("If you need help") | safe }}</p>
+
+            <h1>{{ gettext("Remix any webpage!") }}</h1>
+            <p>{{ gettext("You can take X-Ray Goggles with you anywhere on the web:") }}</p>
+            <ol id="install">
+              <li>
+                <p>{{ gettext("Make sure your web browser's bookmarks bar is enabled.") }} </p>
+                <p class="screenshot step1" data-step="1"><img src="img/instructions/firefox1.png"></p>
+              </li>
+              <li>
+                <p>{{ gettext("Drag the yellow button into your bookmarks") | safe }}</p>
+                <p class="screenshot step2" data-step="2"><img src="img/instructions/firefox2.png"></p>
+              </li>
+              <li>
+                <p>{{ gettext("Now visit any website on the internet") }}</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div id="try-goggles">
+
+    </div>
+    <script id="require-js" src="/bower/requirejs/require.js"
+      data-main="{% block require_main %}/js/main.js{% endblock %}">
+    </script>
+    <script src="jquery.min.js"></script>
+    <script src="src/get-bookmarklet-url.js"></script>
+    <script src="{{ audience }}/sso/include.js"></script>
+    <script src="{{ login }}/js/sso-ux.js"></script>
+    <script src="https://www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
+    <script>(function() {
+      "use strict";
+      $(window).ready(function() {
+
+        $("#bookmarklet-link").attr("href", Webxray.getBookmarkletURL("{{hostname}}", "{{localeInfo.lang}}"));
+        $("#bookmarklet-url").val(Webxray.getBookmarkletURL());
+
+        // browser-specific screenshots
+        // http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
+        var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+            // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+        var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+        var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+            // At least Safari 3+: "[object HTMLElementConstructor]"
+        var isChrome = !!window.chrome && !isOpera;              // Chrome 1+
+        var isIE = /*@cc_on!@*/false || document.documentMode;   // At least IE6
+        var browser = "firefox";
+
+        if (isChrome) {
+          browser = "chrome";
+        } else if (isSafari) {
+          browser="safari";
+        }
+
+        $('#install .screenshot.step1 img').attr('src', 'img/instructions/' + browser + '1.png');
+        $('#install .screenshot.step2 img').attr('src', 'img/instructions/' + browser + '2.png');
+        $('.screenshot').fadeIn();
+
+      });
+
+    }());</script>
+  </body>
+</html>
+>>>>>>> 29f4da764a9bf17ca8b726d7ae4e47b7f295de2d
