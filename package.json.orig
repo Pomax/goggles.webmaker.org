@@ -1,0 +1,81 @@
+<<<<<<< HEAD
+{
+  "name": "goggles.webmaker.org",
+  "version": "0.0.24",
+  "description": "A node version of the X-ray Goggles",
+  "private": true,
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "async": "0.2.9",
+    "bower": "1.2.3",
+    "express": "3.2.0",
+    "glob": "3.2.3",
+    "habitat": "0.4.1",
+    "helmet": "0.0.11",
+    "htmlsanitizer": "0.0.2",
+    "node-webmaker-i18n": "https://github.com/mozilla/node-webmaker-i18n/archive/v0.2.2.tar.gz",
+    "knox": "0.8.5",
+    "makeapi-client": "https://github.com/mozilla/makeapi-client/tarball/v0.5.6",
+    "less-middleware": "0.1.12",
+    "mox-server": "https://github.com/Pomax/mox-server/archive/master.tar.gz",
+    "newrelic": "0.9.20",
+    "node-statsd": "0.0.7",
+    "noxmox": "0.2.4",
+    "nunjucks": "0.1.10",
+    "sequelize": "1.6.0",
+    "webmaker-loginapi": "https://github.com/mozilla/node-webmaker-loginapi/tarball/v0.1.9"
+  },
+  "optionalDependencies": {
+    "mysql": "2.0.0-alpha7",
+    "sqlite3": "2.1.17"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-csslint": "~0.1.2",
+    "grunt-recess": "0.3.3",
+    "grunt-contrib-jshint": "~0.4.3"
+  }
+}
+=======
+{
+  "name": "goggles.webmaker.org",
+  "version": "0.0.36",
+  "description": "A node version of the X-ray Goggles",
+  "private": true,
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "async": "0.2.9",
+    "bower": "1.2.3",
+    "express": "3.2.0",
+    "glob": "3.2.3",
+    "habitat": "0.4.1",
+    "helmet": "0.0.11",
+    "htmlsanitizer": "0.0.2",
+    "node-webmaker-i18n": "https://github.com/mozilla/node-webmaker-i18n/archive/v0.2.8.tar.gz",
+    "knox": "0.8.5",
+    "makeapi-client": "https://github.com/mozilla/makeapi-client/tarball/v0.5.6",
+    "less-middleware": "0.1.12",
+    "mox-server": "https://github.com/Pomax/mox-server/archive/master.tar.gz",
+    "newrelic": "0.11.5",
+    "node-statsd": "0.0.7",
+    "noxmox": "0.2.4",
+    "nunjucks": "0.1.10",
+    "sequelize": "1.6.0",
+    "webmaker-loginapi": "https://github.com/mozilla/node-webmaker-loginapi/tarball/v0.1.18"
+  },
+  "optionalDependencies": {
+    "mysql": "2.0.0-alpha7",
+    "sqlite3": "2.1.17"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-csslint": "~0.1.2",
+    "grunt-recess": "0.3.3",
+    "grunt-contrib-jshint": "~0.4.3"
+  }
+}
+>>>>>>> 29f4da764a9bf17ca8b726d7ae4e47b7f295de2d
