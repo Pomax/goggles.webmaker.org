@@ -209,7 +209,7 @@
     "html-element-docs:style": "Style element ประกอบด้วยข้อมูลของ document. ข้อมูลของ Style ควรที่จะเข้าไปอยู่ใน element, ปกติแล้วในภาษา CSS (เช็ค <a title=\"CSS\" rel=\"internal\" href=\"https://developer.mozilla.org/en/CSS\">CSS</a>).",
     "body.text": "สีเบื้องหน้าของตัวอักษร",
     "iframe.marginheight": "ระยะห่างของเนื้อหาจากขอบ บน,ล่าง หน่วยเป็น พิกเซล",
-    "command.disabled": "บ่งชี้ว่าคำสั่งไม่สามารถใช้งานได้",
+    "command.disabled": "แสดงให้เห็นว่าคำสั่งยังไม่สามารถใช้งานได้",
     "a.href": "หนึ่ง attribute นี้สำหรับ anchor ระบุในการใช้ของ hypertext source link.",
     "short-element-descriptions:strong": "สำคัญอย่างมาก",
     "button.formaction": "URI ของโปรแกรมที่มีกระบวนการส่งข้อมูลจากปุ่ม",
