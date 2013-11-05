@@ -452,7 +452,7 @@
     "table.frame": "This enumerated attribute defines which side of the frame surrounding the table must be displayed.",
     "short-element-descriptions:area": "image-map hyperlink",
     "video.preload": "This enumerated attribute is intended to provide a hint to the browser about what the author thinks will lead to the best user experience.",
-    "If you need help": "If you need help, make sure the X-Ray Goggles are activated, then press <kbd>H</kbd> on your keyboard.",
+    "If you need help": "If you need help, make sure the X-Ray Goggles are activated, then press the Latin <kbd>H</kbd> on your keyboard.",
     "form.accept": "A comma-separated list of content types that the server accepts.",
     "time.pubdate": "(This feature is still being discussed by the WHATWG and the W3C HTML5 Working Group.) This Boolean attribute specifies that the date and time given by the element is the publication date of a document.",
     "activate the X-Ray Goggles by": "Next, activate the X-Ray Goggles by clicking the yellow button above.",
