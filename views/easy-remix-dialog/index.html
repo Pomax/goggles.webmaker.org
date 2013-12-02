@@ -2,6 +2,7 @@
 <html lang="{{ localeInfo.lang }}" dir="{{ localeInfo.direction }}">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=false"> 
     <link rel="stylesheet" href="{{hostname}}/stylesheets/style.css">
     <link rel="stylesheet" href="{{hostname}}/stylesheets/dialog.css">
     <link rel="stylesheet" href="{{hostname}}/stylesheets/hierarchic-source-code.css">
@@ -56,6 +57,9 @@
         <div id="dom-rendering-column" class="pane split">
           <div id="dom-rendering"></div>
         </div>
+        <div id="mobile-preview-seperator" class="pane split">
+          <h2 class="preview-pane-header">{{ gettext("Preview") }}</h2>
+        </div>        
         <div id="preview-column" class="pane split">
           <iframe id="preview" scrolling="no" src="blank.html"></iframe>
         </div>

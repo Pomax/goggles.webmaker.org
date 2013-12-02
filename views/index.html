@@ -2,8 +2,10 @@
 <html lang="{{ localeInfo.lang }}" dir="{{ localeInfo.direction }}">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=false">
     <meta name="persona-email" content="{{ email }}">
     <meta name="csrf-token" content="{{ csrf }}">
+    <meta name="viewport" content="width=device-width">
     <title>{{ gettext("X-Ray Goggles") }}</title>
     <link rel="stylesheet" href="/resources/font-awesome/css/font-awesome.css">
     <link href="//www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet">
@@ -142,6 +144,20 @@
                 <p>{{ gettext("Now visit any website on the internet") }}</p>
               </li>
             </ol>
+            <ol id="install-mobile" style="display: none;">
+                <li>
+                  <p>{{ gettext("Press and hold the activate x-ray goggles button.") }}</p>
+            <p class="screenshot step1" data-step="1"><img src="img/instructions/mobile/firefox1.png"></p>
+                </li>
+                <li>
+                  <p>{{ gettext("Copy & Bookmark the link") }}</p>
+            <p class="screenshot step2" data-step="2"><img src="img/instructions/mobile/firefox2.png"></p>                
+                </li>
+                <li>
+                  <p>{{ gettext("Paste the link and run it") }}</p>
+            <p class="screenshot step3" data-step="3"><img src="img/instructions/mobile/firefox3.png"></p>                    
+                </li>
+            </ol>            
           </div>
         </div>
       </div>
@@ -188,6 +204,12 @@
         $('#install .screenshot.step1 img').attr('src', 'img/instructions/' + browser + '1.png');
         $('#install .screenshot.step2 img').attr('src', 'img/instructions/' + browser + '2.png');
         $('.screenshot').fadeIn();
+
+        /* sourced */
+        if( /webOS|iPhone|iPad|iPod|Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+          $("#install").hide();
+          $("#install-mobile").show();  
+        }        
 
       });
 
