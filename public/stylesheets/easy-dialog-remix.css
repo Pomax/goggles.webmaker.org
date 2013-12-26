@@ -106,6 +106,11 @@
   background-color: #DDECEB;
 }
 
+#mobile-preview-seperator {
+  display: none;  
+  height: 20px;
+}
+
 #preview {
   height: 400px;
   width: 100%;
@@ -125,6 +130,7 @@ span.sample {
   padding: 3px;
   cursor: move;
 }
+
 
 .mdn-link {
   cursor: pointer !important;
@@ -154,7 +160,14 @@ span.sample {
     float: none;
     clear: both;
     width: 100%;
+    height: auto !important;
     margin-left: 0;
+    padding: 2em 0;
   }
-  
+
+  #mobile-preview-seperator {
+  display: block; 
+  width: 100%;
+  background:  #3FB58E;
+  }    
 }

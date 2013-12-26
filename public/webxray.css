@@ -179,6 +179,7 @@ div.webxray-dialog-inner {
 div.webxray-dialog-content, .webxray-dialog-inner iframe {
     display: block;
     width: 100%;
+    min-width: 380px;
     height: 100%;
     border: inherit;
 }
@@ -412,4 +413,47 @@ div.webxray-toolbar-button-glyph-tiny {
 .webxray-toolbar-button-toggled {
   background-color: yellow;
   color: black;
+}
+
+@media screen and (max-width: 800px) {
+  .webxray-dialog-middle {
+    top: 0% !important;
+    height: 100% !important;
+  }
+
+  div.webxray-dialog-inner {
+    width: 100% !important;
+  }  
+}
+
+@media screen and (max-width: 400px) {
+  .header .logo {
+    display: none;
+  }
+
+  .header .buttons {
+    font-size: 10px;
+   float: none;    
+  }
+}
+
+@media screen and (max-height: 400px) {
+  div.webxray-toolbar-button {
+    width: 25px;
+    height: 25px;
+  }
+
+  div.webxray-toolbar-button-glyph {
+    font-size: 10px;
+  }
+
+  div.webxray-toolbar-button {
+    height: 10px;
+  }    
+}
+
+@media screen and (max-height: 400px) {
+ div.webxray-toolbar-button-glyph {
+    display: none;
+  }  
 }

@@ -77,6 +77,7 @@ a:active {
   left: 0;
   bottom: 0;
   width: 100%;
+  overflow: auto;
 }
 
 .logo {
@@ -107,6 +108,32 @@ a:active {
   background-color: #3FB58E;
   color: #fff;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 740px) {
+  .dialog .subheader h2 {
+    font-size: 14px;    
+  }
+  
+  .logo {
+    width: 150px;
+
+    height: auto;
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  .preview-pane-header,
+  .preview-message-header {
+    font-size: 14px;
+    color: #FFF;
+    text-align: center;
+  }
+
+  .subheader .preview-pane-header {
+    display: none !important;
+  }
 }
 
 /*
