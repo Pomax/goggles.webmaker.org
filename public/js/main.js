@@ -2,6 +2,7 @@
 requirejs.config({
   baseDir:'/js',
   paths: {
+    'analytics':        '/bower/webmaker-analytics/analytics',
     'jquery':           '/bower/jquery/jquery',
     'text':             '/bower/text/text',
     'localized':        '/bower/webmaker-i18n/localized',
