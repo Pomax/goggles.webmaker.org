@@ -16,8 +16,8 @@
         var script = document.createElement('script');
         script.src = '/webxray.js';
         script.className = 'webxray';
-        script.setAttribute('data-lang',localeInfo);
-        script.setAttribute('data-baseuri', hostname + "/"+localeInfo);
+        script.setAttribute('data-lang', localeInfo);
+        script.setAttribute('data-baseuri', hostname + "/" + localeInfo);
         document.body.appendChild(script);
       });
     });
