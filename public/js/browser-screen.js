@@ -9,7 +9,9 @@
       $("#bookmarklet-link").attr("href", Webxray.getBookmarkletURL(hostname, localeInfo));
 
       $("#bookmarklet-link").on("click", function(event) {
-        analytics.event("Activate X-Ray Goggles");
+        analytics.event("Activate X-Ray Goggles", {
+          label: "activated"
+        });
         event.preventDefault();
         var script = document.createElement('script');
         script.src = '/webxray.js';

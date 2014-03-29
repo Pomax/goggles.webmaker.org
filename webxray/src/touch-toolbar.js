@@ -20,7 +20,39 @@
       $('.webxray-toolbar-button-text', button).text(text);
       button.find('*').andSelf().addClass('webxray-base');
       button.bind('touchstart touchmove click', function(event) {
-        analytics.event(text.charAt(0).toUpperCase() + text.slice(1));
+        var icon = glyph;
+        var encodedStr = icon.replace(/[\u00A0-\u99999<>\&]/gim, function(i) {
+          return '&#'+i.charCodeAt(0)+';';
+        });
+        switch(encodedStr){
+        case "esc":
+          analytics.event("Track Event QUIT", {
+            label: "quited"
+          });
+          break;
+        case "H":
+          analytics.event("Track Event HELP", {
+            label: "help"
+          });
+          break;
+        case "P":
+          analytics.event("Track Event PUBLISH", {
+            label: "publish"
+          });
+          break;
+        case "&#8592;":
+          analytics.event("Track Event LEFT", {
+            label: "left"
+          });
+          break;
+        case "&#8594;":
+          analytics.event("Track Event RIGHT", {
+            label: "right"
+          });
+          break;
+        default:
+          break;
+        }
         event.preventDefault();
         cb.call(this);
       });
