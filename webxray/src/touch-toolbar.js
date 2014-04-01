@@ -1,6 +1,6 @@
 (function(jQuery) {
   "use strict";
-  require(["jquery", "analytics"], function($, analytics) {
+  require(["analytics"], function(analytics) {
 
     function canBeTouched() {
       return ('ontouchstart' in window);

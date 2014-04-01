@@ -147,7 +147,11 @@ require(["jquery", "bower/webmaker-analytics/analytics.js"], function($, analyti
       $("#close").click(function() {
         window.parent.postMessage("close", "*");
       });
-      var data = JSON.parse(event.data);
+      try{
+        var data = JSON.parse(event.data);
+      }catch(e){
+        console.log("JSON.parse error: " + e);
+      }
       // only run this is it's really a hackpub message. Otherwise, don't trigger.
       if(data.html && data.originalURL && data.hackpubURL) {
         init(data.html, data.originalURL, data.hackpubURL);
