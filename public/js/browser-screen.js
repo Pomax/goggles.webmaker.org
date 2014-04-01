@@ -1,23 +1,26 @@
 (function() {
   "use strict";
 
-  var hostname = document.getElementById("browser-screen").getAttribute("data-hostname");
-  var localeInfo = document.getElementById("browser-screen").getAttribute("data-localeInfo");
+  var hostname = document.getElementById("browser-screen").getAttribute("data-hostname"),
+      localeInfo = document.getElementById("browser-screen").getAttribute("data-localeInfo");
 
   $(window).ready(function() {
+    require(["bower/webmaker-analytics/analytics.js"], function(analytics) {
+      $("#bookmarklet-link").attr("href", Webxray.getBookmarkletURL(hostname, localeInfo));
 
-    $("#bookmarklet-link").attr("href", Webxray.getBookmarkletURL(hostname, localeInfo));
-
-    $("#bookmarklet-link").on("click", function(event) {
-      event.preventDefault();
-      var script = document.createElement('script');
-      script.src = '/webxray.js';
-      script.className = 'webxray';
-      script.setAttribute('data-lang',localeInfo);
-      script.setAttribute('data-baseuri', hostname + "/"+localeInfo);
-      document.body.appendChild(script);
+      $("#bookmarklet-link").on("click", function(event) {
+        analytics.event("Activate X-Ray Goggles", {
+          label: "activated"
+        });
+        event.preventDefault();
+        var script = document.createElement('script');
+        script.src = '/webxray.js';
+        script.className = 'webxray';
+        script.setAttribute('data-lang', localeInfo);
+        script.setAttribute('data-baseuri', hostname + "/" + localeInfo);
+        document.body.appendChild(script);
+      });
     });
-
     // browser-specific screenshots
     // http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
     var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
