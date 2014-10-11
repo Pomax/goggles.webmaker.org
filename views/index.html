@@ -86,16 +86,20 @@
 
     <div class="ui-wrapper ui-body-nobg">
       <div class="banner">
-        <div class="header">
-          <div>
-            <img class="logo" src="img/goggles.png" alt="{{ gettext("X-Ray Goggles Logo") }}">
-          </div>
-          <div>
-            <h1>{{ gettext("X-Ray Goggles") }}</h1>
-            <h2>{{ gettext("Remix and share web pages instantly") }}</h2>
-          </div>
++        <div id="bookmarklet-wrapper">
+            <div class="header">
+              <div>
+                <img class="logo" src="img/goggles.png" alt="{{ gettext("X-Ray Goggls Logo") }}">
+              </div>
+              <div class="logo-text">
+                <h1>{{ gettext("X-Ray Goggles") }}</h1>
+                <h2>{{ gettext("Remix and share web pages instantly") }}</h2>
+              </div>
+            </div>
+            <a href="" id="bookmarklet-link" class="ui-btn">
+                <span>{{ gettext("Activate X-Ray Goggles") }}</span>
+            </a>
         </div>
-        <div class="bookmarklet"><a href="" id="bookmarklet-link" class="ui-btn"><span>{{ gettext("Activate X-Ray Goggles") }}</span></a></div>
       </div>
       <div class="ui-bg-column">
         <div class="ui-row">
@@ -166,7 +170,5 @@
     </script>
 
     <script src="https://mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
-
-    </script>
   </body>
 </html>
