@@ -14,11 +14,13 @@ requirejs.config({
     'sso-override':     'sso-override',
     'auth-login':       'auth-login',
     'google-analytics': 'google-analytics',
-    'bookmarklet':      '/src/get-bookmarklet-url'
+    'bookmarklet':      '/src/get-bookmarklet-url',
+    'scrollspy':        '/resources/jquery-scrollspy',
+    'sticky-header':    'sticky-header'
   }
 });
 
-require(['languages', 'jquery', 'selectize', 'browser-screen', 'auth-login', 'sso-override', 'bookmarklet'],
+require(['languages', 'jquery', 'selectize', 'browser-screen', 'auth-login', 'sso-override', 'bookmarklet', 'scrollspy', 'sticky-header'],
   function (Languages, $) {
     'use strict';
     // Call this when language picker element is ready.
