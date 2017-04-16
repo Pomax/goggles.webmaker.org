@@ -13,7 +13,7 @@ var Webxray = (function() {
     getBookmarkletURL: function getBookmarkletURL(baseURI, lang) {
       baseURI = baseURI || this._getBaseURI();
 
-      var baseCode = "(function(){var script=document.createElement('script');script.src='-baseuri-/"+lang+"/webxray.js';script.className='webxray';script.setAttribute('data-lang','"+lang+"');script.setAttribute('data-baseuri','-baseuri-/"+lang+"');document.body.appendChild(script);})();";
+      var baseCode = "(function(){var doc=document;var urlParser=document.createElement('a');urlParser.href=window.location.href;if(/makes.org/.test(urlParser.host)&&/^\\/thimble\\/(.*)[^_]$/.test(urlParser.pathname)){doc=document.querySelector('iframe.embed-iframe').contentDocument;}var script=doc.createElement('script');script.src='-baseuri-/"+lang+"/webxray.js';script.className='webxray';script.setAttribute('data-lang','"+lang+"');script.setAttribute('data-baseuri','-baseuri-/"+lang+"');doc.body.appendChild(script);})();";
       var code = baseCode.replace( /-baseuri-/g, baseURI );
 
       return 'javascript:' + code;
